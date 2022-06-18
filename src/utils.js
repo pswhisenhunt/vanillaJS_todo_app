@@ -16,7 +16,7 @@ const mockSaveTodo = (todo) => {
     return new Promise((resolve, reject) => {
         const text = todo.text;
         setTimeout(() => {
-            text ? resolve({ status: 200, todo: todo }) : reject({ status: 400, error: 'Invalid property: text'})
+            text ? resolve({ status: 200, todo: todo }) : reject({ status: 400, message: 'Invalid property: text'})
         }, 1000)
     });
 }
