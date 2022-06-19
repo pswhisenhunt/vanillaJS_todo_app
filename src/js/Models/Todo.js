@@ -1,5 +1,5 @@
 class Todo {
-    constructor(text = '', dueDate = new Date()) {
+    constructor(text = '') {
         this._id = generateId();
         this.text = text;
     }
@@ -10,7 +10,20 @@ class Todo {
             .catch(error => error)
     }
 
-    update = () => {}
+    getAll = () => {
+        return JSON.parse(localStorage.getItems('todos')) || [];
+    }
 
-    delete =  () => {}
+    get = (id) => {
+        let todos = this.getAll();
+        return todos.filter(todo => todo.id === id)
+    }
+
+    update = (id, data) => {
+        let todo = this.get(id);
+        let updated = {...todo, ...data};
+        //remove from localstorage and add the updated todo
+    }
+
+    delete =  (id) => {}
 }
