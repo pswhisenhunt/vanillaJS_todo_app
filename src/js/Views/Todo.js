@@ -6,7 +6,7 @@ function saveTodo(event) {
         if (data.status === 200) {
             // render new view 
         } else {
-            // render error
+            showError(data)
         }
     })
 }

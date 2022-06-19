@@ -1,22 +1,13 @@
 class Todo {
-    constructor(text = '') {
-        // add due date and time property
-        this.text = text;
+    constructor(text = '', dueDate = new Date()) {
         this._id = generateId();
+        this.text = text;
     }
 
     save = () => {
         return mockSaveTodo(this)
-            .then((data) => {
-                let todos = JSON.parse(localStorage.getItem('todos')) || [];
-                todos.push(data.todo);
-                localStorage.setItem('todos', JSON.stringify(todos));
-                return data;
-            })
-            .catch((error) => {
-                console.error(`${error.status}, ${error.message}`);
-                return error;
-            });
+            .then(data => data)
+            .catch(error => error)
     }
 
     update = () => {}

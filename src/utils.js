@@ -12,11 +12,17 @@ const randomStr = () => {
 /**
  * Mocks async req for saving a todo
  */
-const mockSaveTodo = (todo) => {
+const mockSaveTodo = (data) => {
     return new Promise((resolve, reject) => {
-        const text = todo.text;
         setTimeout(() => {
-            text ? resolve({ status: 200, todo: todo }) : reject({ status: 400, message: 'Invalid property: text'})
+            if (!data.text) {
+                reject({ status: 400, message: 'Invalid property: text'})
+            } else {
+                let todos = JSON.parse(localStorage.getItem('todos')) || [];
+                todos.push(data);
+                localStorage.setItem('todos', JSON.stringify(todos));
+                resolve({ status: 200, todo: data }) 
+            }
         }, 1000)
     });
 }
