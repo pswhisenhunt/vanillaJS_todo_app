@@ -42,6 +42,7 @@ function createTodoView(data) {
     if (data.completed) {
         todoContainer.classList.add('completed');
         markCompleteCheckbox.setAttribute('checked', true);
+        markCompleteCheckbox.disabled = true;
     }
 
     deleteTodoButton.dataset.id = data._id;
