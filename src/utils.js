@@ -27,7 +27,7 @@ const mockSaveTodo = (data) => {
     });
 }
 
-const mockDeleteTodo =  (id) => {
+const mockDeleteTodo = (id) => {
     let todos =  JSON.parse(localStorage.getItem('todos')) || [];
     let removed = todos.filter((todo) => {
         return todo._id !== id;
@@ -42,4 +42,32 @@ const mockDeleteTodo =  (id) => {
             }
         }, 1000);
     })
+}
+
+const mockUpdateTodo = (data) => {
+    let todos =  JSON.parse(localStorage.getItem('todos')) || [];
+    let error = true;
+    let updated = [];
+    todos.forEach((todo) => {
+        if (todo._id === data._id) {
+            error = false;
+            todo = {...todo, ...data};
+            updated.push(todo);
+        } else {
+            updated.push(todo);
+        }
+    });
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (!error) {
+                localStorage.setItem('todos', JSON.stringify(updated));
+                resolve({status: 200});
+            } else {
+                reject({status: 400, message: 'Failed to update todo'});
+            }
+        }, 1000);
+        resolve({status: 200});
+    });
+
 }

@@ -1,8 +1,9 @@
 class Todo {
-    constructor(text, due) {
+    constructor(data) {
         this._id = generateId();
-        this.text = text ? text : '';
-        this.due = due ? due : new Date();
+        this.text = data.text ? data.text : '';
+        this.due = data.due ? data.due : new Date();
+        this.completed = data.completed ? true : false;
     }
 
     save = () => {
@@ -10,4 +11,5 @@ class Todo {
             .then(data => data)
             .catch(error => error);
     }
+
 }

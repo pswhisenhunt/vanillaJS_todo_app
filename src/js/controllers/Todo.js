@@ -1,21 +1,22 @@
-function update(id, data) {
-    let todo = this.get(id);
-    let updated = {...todo, ...data};
-    let bound = updated.save().bind(this);
-    console.log(bound);
-}
-
-function deleteTodo(id) {
+function remove(id) {
     return mockDeleteTodo(id)
         .then(data => data)
         .catch(error => error);
 }
 
+function completed(id) {
+    let todo = get(id);
+    todo.completed = true;
+    return mockUpdateTodo(todo)
+        .then(data => data)
+        .catch(error => error);
+}
+
 function getAll() {
-    return JSON.parse(localStorage.getItems('todos')) || [];
+    return JSON.parse(localStorage.getItem('todos')) || [];
 }
 
 function get(id) {
     let todos = this.getAll();
-    return todos.filter(todo => todo.id === id);
+    return todos.filter(todo => todo._id === id)[0];
 }
