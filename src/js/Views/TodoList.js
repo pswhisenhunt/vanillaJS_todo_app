@@ -1,3 +1,8 @@
-// render all todos
-// filter todos 
-// sort todos by due datetime 
+function renderTodos() {
+    const todoList = document.getElementById('todo-list');
+    todoList.classList.add('todo-list');
+    const todos = JSON.parse(localStorage.getItem('todos')) || [];
+    todos.forEach((todo) => {
+        todoList.appendChild(createTodoView(todo))
+    });
+}

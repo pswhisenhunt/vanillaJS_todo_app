@@ -1,7 +1,7 @@
 const error = document.getElementById('error');
 
 
-function showError({status, message}) {
+function renderError({status, message}) {
     error.innerHTML = `Status Code ${status}: ${message}`;
     error.classList.remove('hidden');
     appendClose();

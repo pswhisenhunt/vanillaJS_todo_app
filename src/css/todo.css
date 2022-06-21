@@ -22,3 +22,25 @@
     color: rgb(113, 5, 5);
     font-size: 18px;
 }
+
+.todo-list {
+    list-style-type: none;
+    margin: 0;
+}
+
+li[class^=todo-list-item_] {
+    font-size: 18px;
+}
+
+div[class^=todo-container_] {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 40%;
+    padding: 15px;
+    margin-bottom: 25px
+}
+
+span[class^=todo-controls_] button {
+    float: right;
+    margin: 5px;
+}

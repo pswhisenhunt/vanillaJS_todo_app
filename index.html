@@ -16,15 +16,32 @@
                     What do you need to do?
                     <input type="text" id="todo" name="todo"/>
                 </label>
+                <label for="due">
+                    When does it need to be done?
+                    <input 
+                        type="datetime-local" 
+                        id="due" 
+                        name="due"  
+                    >
+                </label>
                 <button onclick="saveTodo(event)">Add</button>
             </form>
             <div id="error" class="error hidden"></div>
+            <div id="todos">
+                <ul id="todo-list"></ul>
+            </div>
         </main>
         <footer></footer>
         <script src="./src/js/models/Todo.js"></script>
         <script src="./src/js/views/error.js"></script>
         <script src="./src/js/views/todo.js"></script>
         <script src="./src/js/views/todoList.js"></script>
+        <script src="./src/js/controllers/Todo.js"></script>
         <script src="./src/utils.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                renderTodos();
+            });
+        </script>
     </body>
 </html>

@@ -1,29 +1,13 @@
 class Todo {
-    constructor(text = '') {
+    constructor(text, due) {
         this._id = generateId();
-        this.text = text;
+        this.text = text ? text : '';
+        this.due = due ? due : new Date();
     }
 
     save = () => {
         return mockSaveTodo(this)
             .then(data => data)
-            .catch(error => error)
+            .catch(error => error);
     }
-
-    getAll = () => {
-        return JSON.parse(localStorage.getItems('todos')) || [];
-    }
-
-    get = (id) => {
-        let todos = this.getAll();
-        return todos.filter(todo => todo.id === id)
-    }
-
-    update = (id, data) => {
-        let todo = this.get(id);
-        let updated = {...todo, ...data};
-        //remove from localstorage and add the updated todo
-    }
-
-    delete =  (id) => {}
 }
