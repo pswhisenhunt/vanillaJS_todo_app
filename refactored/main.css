@@ -24,11 +24,11 @@ body {
     margin: 0 48px 0 48px;
 }
 
-.nobullets {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
+
 
 
 /* || Header */
@@ -39,7 +39,11 @@ body {
     letter-spacing: var(--small-gap);
 }
 
+
+
+
 /* || Form */
+
 .form {
     width: 50%;
 }
@@ -71,4 +75,45 @@ body {
     color: white;
     font-size: var(--small-text);
     font-weight: var(--font-light);
+}
+
+
+
+/* || Todos */
+.todos--container {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.todo--container {
+    border: 1px dashed #a7a7a7;
+    border-radius: 2px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.todo--controls {
+    float: right;
+    font-size: 14px;
+}
+
+.todo__controls__button {
+    margin-right: 10px;
+    padding: 5px;
+    width: 75px;
+    border: none;
+    border-radius: 2px;
+    background: #eb96a6;
+    color: white;
+}
+
+input[type="checkbox"] {
+    background-color: #fff;
+    margin: -5px -5px -5px 5px;
+    font: inherit;
+    width: 15px;
+    height: 15px;
+    border: 0.5px solid var(--main-font-color);
+    border-radius: 1px;
+    transform: translateY(3px);
 }
