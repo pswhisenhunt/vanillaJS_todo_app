@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS To Do App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="title__main">to do...</h1>
+    </header>
+    <form class="form form--general">
+        <div class="form--control">
+            <label for="todoText" class="form__label">What do you need to do?</label>
+            <textarea id="todoText" class="form__input form__input__text" autofocus></textarea>
+        </div>
+        <div class="form--control">
+            <label for="todoText" class="form__label">When is it due?</label>
+            <input type="date" id="due" class="form__input form__input__date"/>
+        </div>
+        <div class="form--control">
+            <button id="addTodo" class="form__button">add</button>
+        </div>
+    </form>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

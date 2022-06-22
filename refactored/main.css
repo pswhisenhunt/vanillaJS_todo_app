@@ -1,0 +1,74 @@
+/* || General Styles */
+
+* {
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif
+}
+
+:root {
+    /* || Typography */
+    --font-light: 100;
+   --large-text: 48px;
+   --medium-text: 24px;
+   --samll-text: 12px;
+   --small-gap: -3px;
+
+   /* || Colors */
+   --main-font-color: rgb(38, 38, 38);
+   --button-bg-color: darkcyan;
+}
+
+body {
+    font-weight: var(--font-light);
+    color: var(--main-font-color);
+    margin: 0 48px 0 48px;
+}
+
+.nobullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* || Header */
+
+.title__main {
+    font-size: var(--large-text);
+    font-weight: var(--font-light);
+    letter-spacing: var(--small-gap);
+}
+
+/* || Form */
+.form {
+    width: 50%;
+}
+
+.form--control {
+    margin-bottom: 32px;
+}
+.form__input {
+    display: block;
+    margin: 5px 0 10px 0;
+}
+
+.form__input__text {
+    height: 75px;
+    width: 300px;
+}
+
+.form__input__date {
+    height: 30px;
+    width: 125px;
+}
+
+.form__button {
+    width: 50px;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--button-bg-color);
+    color: white;
+    font-size: var(--small-text);
+    font-weight: var(--font-light);
+}
