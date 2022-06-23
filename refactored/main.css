@@ -9,13 +9,15 @@
     /* || Typography */
     --font-light: 100;
    --large-text: 48px;
-   --medium-text: 24px;
-   --samll-text: 12px;
+   --medium-text: 18px;
+   --small-text: 12px;
    --small-gap: -3px;
 
    /* || Colors */
    --main-font-color: rgb(38, 38, 38);
    --button-bg-color: darkcyan;
+   --light-grey: rgb(241 241 241);
+   --dark-grey: rgb(169, 169, 169);
 }
 
 body {
@@ -54,26 +56,27 @@ body {
 .form__input {
     display: block;
     margin: 5px 0 10px 0;
+    font-size: var(--medium-text);
 }
 
 .form__input__text {
-    height: 75px;
-    width: 300px;
+    height: 100px;
+    width: 500px;
 }
 
 .form__input__date {
-    height: 30px;
-    width: 125px;
+    height: 50px;
+    width: 180px;
 }
 
 .form__button {
-    width: 50px;
+    width: 100px;
     padding: 5px;
     border: none;
     border-radius: 2px;
     background-color: var(--button-bg-color);
     color: white;
-    font-size: var(--small-text);
+    font-size: var(--medium-text);
     font-weight: var(--font-light);
 }
 
@@ -82,14 +85,14 @@ body {
 /* || Todos */
 .todos--container {
     width: 50%;
-    border: 1px solid black;
 }
 
 .todo--container {
-    border: 1px dashed #a7a7a7;
+    border: 1px solid black;
     border-radius: 2px;
     padding: 24px;
     margin-bottom: 24px;
+    margin-top: 20px;
 }
 
 .todo--controls {
@@ -103,8 +106,14 @@ body {
     width: 75px;
     border: none;
     border-radius: 2px;
-    background: #eb96a6;
+    background: #ee4765;
     color: white;
+}
+
+.todo--completed {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+    border: none;
 }
 
 input[type="checkbox"] {

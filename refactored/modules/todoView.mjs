@@ -29,6 +29,12 @@ class TodoView {
         markCompleteCheckbox.setAttribute('id', this.todo._id)
         markCompleteCheckbox.setAttribute('type', 'checkbox')
         
+        if (this.todo.completed) {
+            todoTextContainer.classList.add('todo--completed');
+            markCompleteCheckbox.setAttribute('checked', true);
+            markCompleteCheckbox.disabled = true;
+        }
+        
         /** add text to display */
         deleteTodoButton.innerHTML = 'Delete';
         markCompleteLabel.innerHTML = "Completed";
@@ -41,7 +47,10 @@ class TodoView {
         })
 
         markCompleteCheckbox.addEventListener('click', (event) => {
-            console.log(this)
+            todoTextContainer.classList.add('todo--completed');
+            markCompleteCheckbox.setAttribute('checked', true);
+            markCompleteCheckbox.disabled = true;
+            
         })
 
         /** append DOM elements */
