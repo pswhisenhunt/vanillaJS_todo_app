@@ -34,7 +34,7 @@ const update = (todo, data) => {
     return new Promise((resolve, reject) => {
         let todos = getItems('todos')
         let index = todos.findIndex(item => item._id === todo._id)
-        let error = index <= 0 ? true : false
+        let error = index < 0 ? true : false
         todos[index] = {...todo, ...data}
         setTimeout(() => {
             if (!error) {
