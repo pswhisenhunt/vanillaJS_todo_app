@@ -47,7 +47,7 @@ const removeTodo = async function(event) {
 }
 
 const updateTodo = async function(data) {
-    // I need access to the dom elements. Put them on the todo view obj?
+    // TODO: I need access to the dom elements. Put them on the todo view obj?
     try {
         await this.todo.update(data)
         todoTextContainer.classList.add('todo--completed')

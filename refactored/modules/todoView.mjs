@@ -4,6 +4,7 @@ import { removeTodo, updateTodo } from './handlers.mjs'
 class TodoView {
     constructor(todo, el) {
        this.todo = todo
+       // TODO: use this template generate the html
        this.el = el
        this.removeTodoHandler = removeTodo.bind(this)
        this.updateTodoHandler = updateTodo.bind(this)
@@ -68,13 +69,9 @@ class TodoView {
         const deleteTodoButton = document.getElementById(`delete-btn_${this.todo._id}`)
         const markCompleteLabel =  document.getElementById(`complete-label_${this.todo._id}`)
         const markCompleteCheckbox = document.getElementById(`complete-checkbox_${this.todo._id}`)
-        
-        deleteTodoButton.innerHTML = ''
-        markCompleteLabel.innerHTML = ''
-        todoTextContainer.innerHTML = ''
 
-        deleteTodoButton.removeEventListener('click', () => {})
-        markCompleteCheckbox.removeEventListener('click', () => {})
+        deleteTodoButton.removeEventListener('click', this.removeTodoHandler)
+        markCompleteCheckbox.removeEventListener('click', this.updateTodoHandler)
     
         todoControls.removeChild(deleteTodoButton)
         todoControls.removeChild(markCompleteCheckbox)
