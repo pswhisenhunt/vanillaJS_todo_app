@@ -1,6 +1,6 @@
 import { generateId } from './utils.mjs'
 import { TodoView } from './todoView.mjs'
-import { save } from './api.mjs'
+import { save, remove } from './api.mjs'
 
 class Todo {
     constructor({text, due, completed} = {text: '', due: new Date(), completed: false}) {
@@ -11,13 +11,11 @@ class Todo {
     }
 
     save = () => {
-        save(this).then((res) => {
-            if (res.status === 200) {
-                this.view()
-            } else {
-                console.error(res)
-            }
-        })
+        return save(this)
+    }
+
+    remove = () => {
+        return remove(this)
     }
 
     view = () => {
