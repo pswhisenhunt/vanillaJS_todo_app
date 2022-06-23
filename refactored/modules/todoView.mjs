@@ -1,3 +1,5 @@
+import { ErrorView } from './errorView.mjs'
+
 class TodoView {
     constructor(todo) {
         this.todo = todo
@@ -48,7 +50,8 @@ class TodoView {
             this.todo.remove(this).then(() => {
                 this.destroyHTML()
             }).catch((error) => {
-                console.error(error)
+                let errorView = new ErrorView(error)
+                errorView.generateHTML()
             })
         })
 
@@ -59,7 +62,8 @@ class TodoView {
                 markCompleteCheckbox.setAttribute('checked', true)
                 markCompleteCheckbox.disabled = true
             }).catch((error) => {
-                console.error(error)
+                let errorView = new ErrorView(error)
+                errorView.generateHTML()
             })
         })
 

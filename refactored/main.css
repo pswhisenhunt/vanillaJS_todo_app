@@ -18,6 +18,8 @@
    --button-bg-color: darkcyan;
    --light-grey: rgb(241 241 241);
    --dark-grey: rgb(169, 169, 169);
+   --dark-red: rgb(206, 73, 73);
+   --light-red: rgb(236, 192, 192);
 }
 
 body {
@@ -125,4 +127,21 @@ input[type="checkbox"] {
     border: 0.5px solid var(--main-font-color);
     border-radius: 1px;
     transform: translateY(3px);
+}
+
+
+/* || Error */
+.error--container {
+    background-color: var(--light-red);
+    color: var(--dark-red);
+    font-size: var(--medium-text);
+    width: 500px;
+    height: 50px;
+    margin-bottom: 24px;
+    border: 1px solid var(--dark-red);
+    border-radius: 2px;
+}
+
+.error__message {
+    padding: 15px;
 }

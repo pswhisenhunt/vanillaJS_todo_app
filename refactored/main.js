@@ -1,4 +1,5 @@
 import { Todo } from './modules/todo.mjs'
+import { ErrorView } from './modules/errorView.mjs'
 import { getItems, setItems } from './modules/api.mjs'
 
 
@@ -18,7 +19,8 @@ document.getElementById('addTodo').addEventListener('click', (event) => {
             todoDueInput.value = ''
         }
     }).catch((error) => {
-        console.error(error)
+        let errorView = new ErrorView(error)
+        errorView.generateHTML()
     })
 });
 
