@@ -1,8 +1,12 @@
 import { ErrorView } from './errorView.mjs'
+import { removeTodo, updateTodo } from './handlers.mjs'
 
 class TodoView {
-    constructor(todo) {
-        this.todo = todo
+    constructor(todo, el) {
+       this.todo = todo
+       this.el = el
+       this.removeTodoHandler = removeTodo.bind(this)
+       this.updateTodoHandler = updateTodo.bind(this)
     }
 
     generateHTML = () => {
@@ -24,6 +28,7 @@ class TodoView {
         todoTextContainer.classList.add('todo--container')
         todoControls.classList.add('todo--controls')
         deleteTodoButton.classList.add('todo__controls__button')
+        deleteTodoButton.classList.add('delete')
 
         /** add attributes to DOM elements */
         todoTextContainer.setAttribute('id', `todo-container_${this.todo._id}`)
@@ -45,27 +50,8 @@ class TodoView {
         todoTextContainer.innerHTML = text;
         
         /** add event listeners */
-        deleteTodoButton.addEventListener('click', (event) => {
-            event.preventDefault()
-            this.todo.remove(this).then(() => {
-                this.destroyHTML()
-            }).catch((error) => {
-                let errorView = new ErrorView(error)
-                errorView.generateHTML()
-            })
-        })
-
-       markCompleteCheckbox.addEventListener('click', (event) => {
-            let data = {...this.todo, completed: true}
-            this.todo.update(data).then(() => {
-                todoTextContainer.classList.add('todo--completed')
-                markCompleteCheckbox.setAttribute('checked', true)
-                markCompleteCheckbox.disabled = true
-            }).catch((error) => {
-                let errorView = new ErrorView(error)
-                errorView.generateHTML()
-            })
-        })
+        deleteTodoButton.addEventListener('click', this.removeTodoHandler)
+        markCompleteCheckbox.addEventListener('click', this.updateTodoHandler)
 
         /** append DOM elements */
         todoControls.appendChild(deleteTodoButton)

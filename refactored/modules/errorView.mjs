@@ -22,7 +22,7 @@ class ErrorView {
         /** append elements to DOM  */
         errorContainer.appendChild(errorMessage)
 
-        setTimeout(() => { this.destroyHTML() }, 10000)
+        setTimeout(() => { this.destroyHTML() }, 8000)
     }
 
     destroyHTML = () => {

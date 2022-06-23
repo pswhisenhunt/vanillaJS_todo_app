@@ -1,5 +1,4 @@
 import { generateId } from './utils.mjs'
-import { TodoView } from './todoView.mjs'
 import { save, remove, update } from './api.mjs'
 
 class Todo {
@@ -20,11 +19,6 @@ class Todo {
 
     remove = () => {
         return remove(this)
-    }
-
-    view = () => {
-        let todoView = new TodoView(this)
-        todoView.generateHTML()
     }
 }
 

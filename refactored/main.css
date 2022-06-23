@@ -108,8 +108,15 @@ body {
     width: 75px;
     border: none;
     border-radius: 2px;
-    background: #ee4765;
     color: white;
+}
+
+.delete {
+    background-color: var(--dark-red);
+}
+
+.edit {
+    background-color: var(--button-bg-color);
 }
 
 .todo--completed {
