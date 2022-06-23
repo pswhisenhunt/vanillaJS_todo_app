@@ -16,9 +16,7 @@ const save = (todo) => {
 const remove = (todo) => {
     return new Promise((resolve, reject) => {
         let todos = getItems('todos')
-        console.log('todo...',todo._id)
         let withRemoved = todos.filter((item) => {
-            console.log('item id', item._id)
             return item._id != todo._id
         })
         setTimeout(() => {
@@ -32,6 +30,23 @@ const remove = (todo) => {
     })
 }
 
+const update = (todo, data) => {
+    return new Promise((resolve, reject) => {
+        let todos = getItems('todos')
+        let index = todos.findIndex(item => item._id === todo._id)
+        let error = index <= 0 ? true : false
+        todos[index] = {...todo, ...data}
+        setTimeout(() => {
+            if (!error) {
+                setItems('todos', todos)
+                resolve({status: 200})
+            } else {
+                reject({status: 400, message: 'Cannot update todo'})
+            }
+        })
+    })
+}
+
 const getItems = (name) => {
     return JSON.parse(localStorage.getItem(name)) || []
 }
@@ -40,4 +55,4 @@ const setItems = (name, items) => {
     localStorage.setItem(name, JSON.stringify(items))
 }
 
-export { save, remove, getItems, setItems }
+export { save, remove, getItems, setItems, update }

@@ -32,9 +32,9 @@ class TodoView {
         markCompleteCheckbox.setAttribute('type', 'checkbox')
         
         if (this.todo.completed) {
-            todoTextContainer.classList.add('todo--completed');
-            markCompleteCheckbox.setAttribute('checked', true);
-            markCompleteCheckbox.disabled = true;
+            todoTextContainer.classList.add('todo--completed')
+            markCompleteCheckbox.setAttribute('checked', true)
+            markCompleteCheckbox.disabled = true
         }
         
         /** add text to display */
@@ -45,7 +45,7 @@ class TodoView {
         /** add event listeners */
         deleteTodoButton.addEventListener('click', (event) => {
             event.preventDefault()
-            this.todo.remove(this).then((res) => {
+            this.todo.remove(this).then(() => {
                 this.destroyHTML()
             }).catch((error) => {
                 console.error(error)
@@ -53,17 +53,22 @@ class TodoView {
         })
 
        markCompleteCheckbox.addEventListener('click', (event) => {
-            todoTextContainer.classList.add('todo--completed');
-            markCompleteCheckbox.setAttribute('checked', true);
-            markCompleteCheckbox.disabled = true;
+            let data = {...this.todo, completed: true}
+            this.todo.update(data).then(() => {
+                todoTextContainer.classList.add('todo--completed')
+                markCompleteCheckbox.setAttribute('checked', true)
+                markCompleteCheckbox.disabled = true
+            }).catch((error) => {
+                console.error(error)
+            })
         })
 
         /** append DOM elements */
-        todoControls.appendChild(deleteTodoButton);
-        todoControls.appendChild(markCompleteLabel);
-        todoControls.appendChild(markCompleteCheckbox);
-        todoTextContainer.appendChild(todoControls);
-        todosContainer.appendChild(todoTextContainer);
+        todoControls.appendChild(deleteTodoButton)
+        todoControls.appendChild(markCompleteLabel)
+        todoControls.appendChild(markCompleteCheckbox)
+        todoTextContainer.appendChild(todoControls)
+        todosContainer.appendChild(todoTextContainer)
     }
 
     destroyHTML = () => {   
