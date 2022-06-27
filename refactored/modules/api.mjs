@@ -26,7 +26,7 @@ const remove = (todo) => {
             } else {
                 reject({status: 400, message: 'Failed to remove to do'})
             }
-        })
+        }, 1000)
     })
 }
 
@@ -43,7 +43,7 @@ const update = (todo, data) => {
             } else {
                 reject({status: 400, message: 'Cannot update todo'})
             }
-        })
+        }, 200)
     })
 }
 

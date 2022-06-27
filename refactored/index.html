@@ -26,10 +26,18 @@
                 <button id="addTodo" class="form__button">add</button>
             </div>
         </form>
-        <div id="todos-container"></div>
-        <template id="todo-template">
-            <div>
-                click me
+        <div id="todos--container"></div>
+        <template id="todo--template">
+            <div class="todo--container">
+                <div class="todo__text"></div>
+                <div class="todo__due"></div>
+            </div>
+            <div class="todo--controls">
+                <button class="todo__controls__button delete">Delete</button>
+                <label for="completed">
+                    Completed
+                    <input id="completed" class="todo__controls__input" type="checkbox"/>
+                </label>
             </div>
         </template>
     </main>

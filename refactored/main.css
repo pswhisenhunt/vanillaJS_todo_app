@@ -99,6 +99,7 @@ body {
 
 .todo--controls {
     float: right;
+    margin-top: -25px;
     font-size: 14px;
 }
 
